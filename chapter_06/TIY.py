@@ -255,15 +255,35 @@ print("\n")
 # population and fact.  Print the name of each city and all of
 # the information you have stored about it
 
-cities {
+cities = {
 	"Bristol":{
 	"country":"england",
 	"population":"500000",
 	"fact":"The place to be"
-	}
+	},
 	"Bath":{
 	"country":"england",
 	"population":"200000",
 	"fact":"Roman baths are here"
+	},
+	"Scarborough":{
+	"country":"scotland",
+	"population":"200",
+	"fact":"Really bad holiday destination"
+
+
 	}
+
 }
+
+
+for k,v in cities.items():
+	print (f"{k}\n")
+	for ke,va in v.items():
+		print (f"\t{ke}:{va}")
+	print (f"\n")
+
+
+# 6-12 
+# Extend above example by adding new keys and values
+# TBA
