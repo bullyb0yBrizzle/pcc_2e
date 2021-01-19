@@ -31,4 +31,43 @@ favourite_book("Misery")
 #using keyword arguments.
 
 def make_shirt(size,message):
-	
+	print(f"T-shirt size is {size}")
+	print(f"T-shirt message is {message}")
+
+#calling using positional arguments
+make_shirt('Large',"This shirt is MAHOOSIVE")
+
+#calling using keyword arguments
+make_shirt(size='Medium',message="This shirt is MEH")
+
+#calling using keyword arguments
+make_shirt(message="This shirt is MEH",size='Medium')
+
+#8-4. Large Shirts: Modify the make_shirt() function so that shirts
+# are large by default with a message that reads I love Python. Make 
+#a large shirt and a medium shirt with the default message, and a 
+#shirt of any size with a different message.
+
+def make_shirt(size='Large',message='I love Python'):
+	print(f"T-shirt size is {size}")
+	print(f"T-shirt message is {message}")
+
+make_shirt()
+make_shirt('Medium')
+
+make_shirt(message='This t-shirt is da bomb')
+
+
+# 8-5. Cities: Write a function called describe_city() that accepts
+# the name of a city and its country. The function should print a 
+# simple sentence, such as Reykjavik is in Iceland. Give the 
+# parameter for the country a default value. Call your function for 
+# three different cities, at least one of which is not in the default 
+# country.
+
+def describe_city(city,country='Iceland'):
+	print(f"{city.title()} is in {country.title()}")
+
+describe_city ('Bristol','England')
+describe_city ('Bangkok','Thailand')
+describe_city ('Reykjavik')
