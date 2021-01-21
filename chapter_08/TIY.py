@@ -71,3 +71,119 @@ def describe_city(city,country='Iceland'):
 describe_city ('Bristol','England')
 describe_city ('Bangkok','Thailand')
 describe_city ('Reykjavik')
+
+
+
+# 8-6. City Names: Write a function called city_country() that takes
+# in the name of a city and its country. The function should return
+# a string formatted like this:
+
+# "Santiago, Chile"
+
+# Call your function with at least three city-country pairs, and 
+# print the values that are returned.
+
+def city_country(city,country):
+	retval = f"{city.title()}, {country.title()}"
+	return retval
+
+myformattedcountry = city_country("Bristol","England")
+print(myformattedcountry)
+myformattedcountry = city_country("Bath","England")
+print(myformattedcountry)
+myformattedcountry = city_country("Bangkok","Thailand")
+print(myformattedcountry)
+
+# 8-7. Album: Write a function called make_album() that builds
+# a dictionary describing a music album. The function should take 
+# in an artist name and an album title, and it should return a dictionary 
+# containing these two pieces of information. Use the function to make
+# three dictionaries representing different albums. Print each return
+# value to show that the dictionaries are storing the album information
+# correctly. Use None to add an optional parameter to make_album() that
+# allows you to store the number of songs on an album. If the calling line
+# includes a value for the number of songs, add that value to the album’s
+# dictionary. Make at least one new function call that includes the number
+# of songs on an album.
+
+def make_album(artist,album,songs=None):
+	album = {'Artist':artist, 'Album':album}
+	if songs:
+		album['Songs'] = songs
+	return album
+
+
+album = make_album('Dire Straits','Money for Nothing')
+print(album)
+album = make_album('Foo Fighter','In your honour',14)
+print(album)
+
+# 8-8. User Albums: Start with your program from Exercise 8-7. Write a 
+# while loop that allows users to enter an album’s artist and title. Once
+# you have that information, call make_album() with the user’s input and
+# print the dictionary that’s created. Be sure to include a quit value in
+# the while loop.
+
+# def make_album(artist,album,songs=None):
+# 	album = {'Artist':artist, 'Album':album}
+# 	if songs:
+# 		album['Songs'] = songs
+# 	return album
+
+
+# while True:
+# 	print("\nEnter artist and album to make new album")
+# 	print("(Enter q to quit at any time)")
+
+# 	art_name = input("Artist: ")
+# 	if art_name == 'q':
+# 		break
+
+# 	alb_name = input("Album: ")
+# 	if art_name == 'q':
+# 		break
+# 	album = make_album(art_name,alb_name)
+# 	print(album)
+
+
+
+# 8-9. Messages: Make a list containing a series of short text messages. Pass 
+# the list to a function called show_messages(), which prints each text message.
+
+
+
+def show_messages(messages):
+	for m in messages:
+		msg = f'Message is "{m.title()}"'
+		print(msg)
+
+
+messages = ["Hey, how you doing?","Sorry I couldn't get through","If you leave your name and your number...","I'll get back to you"]
+
+show_messages(messages)
+
+
+# 8-10. Sending Messages: Start with a copy of your program from Exercise 8-9. 
+# Write a function called send_messages() that prints each text message and
+# moves each message to a new list called sent_messages as it’s printed. After
+# calling the function, print both of your lists to make sure the messages were
+# moved correctly.
+
+
+def show_messages(messages,sent_messages):
+	while messages:
+		current_message = messages.pop()
+		print(f"Processing message: {current_message}")
+		sent_messages.append(current_message)
+	
+def show_sent_messages(sent_messages):
+	print ("\nThe following messages have been processed::")
+	for s in sent_messages:
+		print(s)
+
+
+unsent_messages = ["Hey, how you doing?","Sorry I couldn't get through","If you leave your name and your number...","I'll get back to you"]
+processed_messages = []
+
+show_messages(unsent_messages,processed_messages)
+show_sent_messages(processed_messages)
