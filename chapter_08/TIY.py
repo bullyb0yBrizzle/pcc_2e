@@ -187,3 +187,68 @@ processed_messages = []
 
 show_messages(unsent_messages,processed_messages)
 show_sent_messages(processed_messages)
+print ("\n")
+
+# 8-11. Archived Messages: Start with your work from Exercise 8-10. Call the
+# function send_messages() with a copy of the list of messages. After calling the
+# function, print both of your lists to show that the original list has retained 
+# its messages.
+
+unsent_messages = ["Hey, how you doing?","Sorry I couldn't get through","If you leave your name and your number...","I'll get back to you"]
+processed_messages = []
+
+show_messages(unsent_messages[:],processed_messages)
+show_sent_messages(processed_messages)
+
+print(unsent_messages)
+
+# 8-12. Sandwiches: Write a function that accepts a list of items a person wants
+# on a sandwich. The function should have one parameter that collects as many
+# items as the function call provides, and it should print a summary of the 
+# sandwich that’s being ordered. Call the function three times, using a different number of arguments each time.
+
+
+def make_sandwich(*toppings):
+	print(f"We're about to make a sandwich consisting of:")
+	for topping in toppings:
+		print(f"\t{topping}")
+
+
+make_sandwich("ham","mustard","cheese")
+make_sandwich("pineapple","lettuce")
+make_sandwich("vinegar","banana","tomato")
+print("\n")
+
+# 8-13. User Profile: Start with a copy of user_profile.py from page 149. 
+# Build a profile of yourself by calling build_profile(), using your first 
+# and last names and three other key-value pairs that describe you.
+
+def build_profile(first, last, **user_info):
+	user_info['first_name'] = first
+	user_info['last_name'] = last
+	return user_info
+
+user_profile = build_profile('albert', 'einstein',location='princeton',field='physics')
+print(user_profile)
+user_profile = build_profile('Nicholas', 'Bull',location='Bristol',field='IT',status='Legendry')
+print(user_profile)
+
+
+# 8-14. Cars: 
+# Write a function that stores information about a car in a dictionary. The
+# function should always receive a manufacturer and a model name. It should
+# then accept an arbitrary number of keyword arguments. Call the function with
+# the required information and two other name-value pairs, such as a color or
+# an optional feature. Your function should work for a call like this one:
+# car = make_car('subaru', 'outback', color='blue', tow_package=True) Print the
+# dictionary that’s returned to make sure all the information was stored correctly.
+
+
+def car_info(manufacturer,model,**specifications):
+	specifications['manufacturer'] = manufacturer
+	specifications['model'] = model
+	return specifications
+
+car_details = car_info("ford","satsuma",color="orange",wheels="4",doors=5)
+print(car_details)
+
