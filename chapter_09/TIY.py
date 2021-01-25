@@ -75,6 +75,10 @@ me = User("Nicholas","Bull",40,"Male","Bangkok")
 me.describe_user()
 me.greet_user()
 
+print("\n")
+
+
+
 
 # 9-4. Number Served: 
 # start with your program from Exercise 9-1 (page 162). Add an
@@ -89,6 +93,36 @@ me.greet_user()
 # method with any number you like that could represent how many
 # customers were served in, say, a day of business.
 
+class Restaurant:
+	def __init__(self,restaurant_name,cuisine_type):
+		self.restaurant_name = restaurant_name
+		self.cuisine_type = cuisine_type
+		self.number_served = 0
+
+	def describe_restaurant(self):
+		description = f"Restaurant name is {self.restaurant_name.title()} and \
+cuisine_type is {self.cuisine_type.title()}"
+		return description
+
+	def open_restaurant(self):
+		print(f"The {self.restaurant_name.title()} is open")
+
+	def set_number_served(self,number_served):
+		self.number_served = number_served
+
+	def increment_number_served(self,served):
+		self.number_served += served
+		return self.number_served
+
+myrestaurant = Restaurant("Chandos Deli","Spanish")
+print(myrestaurant.number_served)
+myrestaurant.set_number_served(4)
+print(myrestaurant.number_served)
+
+myrestaurant.increment_number_served(5)
+print(myrestaurant.number_served)
+
+print("\n")
 
 # 9-5. Login Attempts: 
 # Add an attribute called login_attempts to your User class from
@@ -102,3 +136,52 @@ me.greet_user()
 # login_attempts to make sure it was incremented properly, and
 # then call reset_login_attempts(). Print login_attempts again to
 # make sure it was reset to 0.
+
+
+class User:
+	def __init__(self,first_name,last_name,age,gender,location):
+ 		self.first_name = first_name
+ 		self.last_name = last_name
+ 		self.age = age
+ 		self.gender = gender
+ 		self.location = location
+ 		self.name = f"{first_name} {last_name}"
+ 		self.login_attempts = 0
+
+	def describe_user(self):
+ 		print(f"The user details are as follows:\n\t\
+First name is {self.first_name} \n\t\
+Last name is {self.last_name} \n\t\
+Age name is {self.age} \n\t\
+Gender is {self.gender} \n\t\
+Location is {self.location}")
+
+	def greet_user(self):
+ 		print (f"Hi {self.name}, hope you're doing ok")
+
+	def increment_login_attempts(self):
+ 		self.login_attempts += 1
+ 		
+
+	def reset_login_attempts(self):
+ 		self.login_attempts = 0
+
+me = User("Nicholas","Bull",40,"Male","Bangkok")
+
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.increment_login_attempts()
+print(me.login_attempts)
+
+me.reset_login_attempts()
+print(me.login_attempts)
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.increment_login_attempts()
+print(me.login_attempts)
+print("\n")
+
+
